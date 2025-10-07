@@ -1,53 +1,33 @@
-const captchaTexBox = document.querySelector(".captcha_box input");
-const refreshButton = document.querySelector(".refresh_button");
-const captchaInputBox = document.querySelector(".captcha_input input");
-const message = document.querySelector(".message");
-const submitButton = document.querySelector(".button");
+let captcha;
+let alphabets = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
+console.log(alphabets.length);
+let status = document.getElementById('status');
+status.innerText = "Captcha Generator";
 
-let captchaText = null
+ generate = () => {
+// console.log(status)
+let first = alphabets[Math.floor(Math.random() * alphabets.length)];
+let second = Math.floor(Math.random() * 10);
+let third = Math.floor(Math.random() * 10);
+let fourth = alphabets[Math.floor(Math.random() * alphabets.length)];
+let fifth = alphabets[Math.floor(Math.random() * alphabets.length)];
+let sixth = Math.floor(Math.random() * 10);
+captcha = first.toString()+second.toString()+third.toString()+fourth.toString()+fifth.toString()+sixth.toString();
+console.log(captcha);
+document.getElementById('generated-captcha').value = captcha;
+document.getElementById("entered-captcha").value = '';
+status.innerText = "Captcha Generator"
+}
 
-const generateCaptcha = () => {
-    const randomString = Math.random().toString(36).substring(2,7);
-    const randomStringArray = randomString.split("");
-    const changeString = randomStringArray.map((char) => (Math.random() > 0.5 ? char.toUpperCase() : char))
-    captchaText = changeString.join("    ");
-    captchaTexBox.value = captchaText;
-    console.log(captchaText);
-    
-};
-
-const refreshBtnClick = () => {
-    generateCaptcha();
-    captchaInputBox.value = ""
-    captchahKeyupValidate();
-};
-
-const captchahKeyupValidate =() => {
-    submitButton.classList.toggle("disabled", !captchaInputBox.value);
-
-    if(captchaInputBox.value === "") message.classList.remove("active");
-};
-
-
-const submitBtnClick = () => {
-    captchaText = captchaText
-    .split("")
-    .filter(char => char !== " ")
-    .join("");
-
-    message.classList.add("active");
-    
-    if(captchaInputBox.value === captchaText){
-        message.innerText = "Entered captcha is correct";
-        message.computedStyleMap.color = "#826afb";
-    }else{
-        message.innerText = "Entered captcha is not correct";
-        message.computedStyleMap.color = "#FF2525";
-    }
-};
-
-refreshButton.addEventListener("click", refreshBtnClick);
-captchaInputBox.addEventListener("keyup", captchahKeyupValidate);
-submitButton.addEventListener("click", submitBtnClick);
-
-generateCaptcha();
+ check = () => {
+// console.log(status)
+let userValue = document.getElementById("entered-captcha").value;
+console.log(captcha);
+console.log(userValue);
+if(userValue == captcha){
+    status.innerText = "Correct!!"
+}else{
+    status.innerText = "Try Again!!"
+    document.getElementById("entered-captcha").value = '';
+}
+}
