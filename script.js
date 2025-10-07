@@ -31,3 +31,4 @@ if(userValue == captcha){
     document.getElementById("entered-captcha").value = '';
 }
 }
+
