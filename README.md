@@ -6,7 +6,7 @@ A simple and interactive CAPTCHA generator built with HTML, CSS, and JavaScript.
 
 ![Captcha Generator Screenshot](https://github.com/Daniish-Qureshi/Captcha-Generator/blob/main/cal.png)
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-2EA44F?style=for-the-badge&logo=github&logoColor=white)](https://daniish-qureshi.github.io/Captcha-Generator/)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-2EA44F?style=for-the-badge&logo=github&logoColor=white)](https://captcha-generator-orpin.vercel.app/)
 
 ## Features
 
@@ -87,3 +87,4 @@ For any queries or feedback, feel free to reach out:
 
 - Font Awesome for icons
 - Google Fonts for typography
+
